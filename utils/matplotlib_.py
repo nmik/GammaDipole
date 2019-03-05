@@ -20,8 +20,8 @@ import time
 import os
 from matplotlib import pyplot as plt
 
-from GRATools import GRATOOLS_OUT_FIG
-from GRATools.utils.logging_ import logger
+from GammaDipole import GD_OUT_FIG
+from GammaDipole.utils.logging_ import logger
 
 DEFAULT_FIG_WIDTH = 8.
 DEFAULT_FIG_HEIGHT = 6.
@@ -52,7 +52,7 @@ def overlay_tag(x=0.95, y=0.95, color='black'):
     plt.text(x, y, text, color=color, size=10, horizontalalignment='right',
                 transform=plt.gca().transAxes)
 
-def save_current_figure(file_name, folder=GRATOOLS_OUT_FIG, clear=True,
+def save_current_figure(file_name, folder=GD_OUT_FIG, clear=True,
                         show=False):
     """Save the current matplotlib figure in `XIMPOL_DOC_FIGURES`.
     Arguments
