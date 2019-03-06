@@ -27,7 +27,7 @@ GD_UTILS = os.path.join(GD_ROOT, 'utils')
 """ This is where we put the actual (FT1 and FT2) data sets.  
 """
 
-from GRATools.utils.logging_ import logger
+from GammaDipole.utils.logging_ import logger
 try:
     FT_DATA_FOLDER = os.environ['P8_DATA']
     logger.info('Base data folder set to $P8_DATA = %s...' % FT_DATA_FOLDER)
