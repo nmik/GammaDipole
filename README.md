@@ -13,9 +13,9 @@ To use this package:
 
 1) Set the environment:
   
-    export PYTHONPATH=:/path/to/this/package/${PYTHONPATH} \n
-    export PATH=/path/to/this/package/GammaDipole/bin:${PATH} \n
-    export P8_DATA=/path/to/data_files
+    - export PYTHONPATH=:/path/to/this/package/${PYTHONPATH}
+    - export PATH=/path/to/this/package/GammaDipole/bin:${PATH}
+    - export P8_DATA=/path/to/data_files
 
 2) Change the directory where the data files are stored in __init__.py.
 
@@ -23,9 +23,9 @@ To use this package:
    	FT_DATA_FOLDER = '/path/to/data_files'
 
    In this directory should there be the following folders:
-        photon/      -> where FT1 files are stored
-	spacecraft/  -> where FT2 files are stored
-	output/      -> where ST outputs will be stored
+        - photon/      -> where FT1 files are stored
+	- spacecraft/  -> where FT2 files are stored
+	- output/      -> where ST outputs will be stored
 
 
 How to run the analysis:
