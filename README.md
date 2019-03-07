@@ -13,8 +13,8 @@ To use this package:
 
 1) Set the environment:
   
-    export PYTHONPATH=:/path/to/this/package/${PYTHONPATH}
-    export PATH=/path/to/this/package/GammaDipole/bin:${PATH}
+    export PYTHONPATH=:/path/to/this/package/${PYTHONPATH} \n
+    export PATH=/path/to/this/package/GammaDipole/bin:${PATH} \n
     export P8_DATA=/path/to/data_files
 
 2) Change the directory where the data files are stored in __init__.py.
