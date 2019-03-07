@@ -200,12 +200,45 @@ def gtpsf(gtpsf_dict):
                   %(expcube, outfile, irfs, evtype, ra, dec, emin, emax, \
                         nenergies, thetamax, ntheta))
 
+def mergeft1(path_to_files, out_file_name, N1week, Nnweek):
+    """creates a .txt file with the list of the FT files to merge.
+
+       path_to_files: str
+           path where datat files are stored
+       out_file_name: str
+           name of the txt output file (created in the same folder of data)
+       N1week: int
+           number of the starting week
+       Nnweek: int
+           number of the ending week
+    """
+    if N1week < 9:
+        abort('Invalid number of weeks: the minimun must be > or = to 9')
+    if Nnweek > 486:
+        abort('Invalid number of weeks: the maximum must be < or = to 486')
+    outtxtfile = os.path.join(path_to_files, out_file_name)
+    if not os.path.exists(outtxtfile):
+        out_file = open(outtxtfile, 'w')
+        for i in range(N1week, Nnweek+1):
+            if i == 9:
+                out_file.write("%s/lat_photon_weekly_w00%i_p302_v001.fits \n" \
+                                   %(path_to_files,i))
+            if i >= 10 and i <= 99:
+                out_file.write("%s/lat_photon_weekly_w0%i_p302_v001.fits \n" \
+                                   %(path_to_files,i))
+            if i > 99:
+                out_file.write("%s/lat_photon_weekly_w%i_p302_v001.fits \n" \
+                                   %(path_to_files,i))
+        out_file.close()
+    logger.info('Created %s...' %outtxtfile)
+    return '@'+outtxtfile
+
 def main():
     """Test section.
     """
     import numpy as np
     from GammaDipole import FT_DATA_FOLDER
-    from GammaDipole.utils.gFTools import mergeft, ebinning_fits_file
+    from GammaDipole.utils.gFTools import ebinning_fits_file
 
     PH = 'photon'
     SC = 'spacecraft'
