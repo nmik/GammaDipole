@@ -24,7 +24,7 @@ To use this package:
 
    - In this directory should there be the following folders:
    
-        - photon/      -> where FT1 files are stored
+   	- photon/      -> where FT1 files are stored
 	- spacecraft/  -> where FT2 files are stored
 	- output/      -> where ST outputs will be stored
 
