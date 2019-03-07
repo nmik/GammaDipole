@@ -211,7 +211,7 @@ def main():
     SC = 'spacecraft'
     PH_FOLDER = os.path.join(FT_DATA_FOLDER, PH)
     SC_FOLDER = os.path.join(FT_DATA_FOLDER, SC)
-    FT1_FILE = mergeft(PH_FOLDER, 'FT1_w9-12.txt', 9, 12)
+    FT1_FILE = mergeft1(PH_FOLDER, 'FT1_w9-12.txt', 9, 12)
     FILTER_CUT='DATA_QUAL==1&&LAT_CONFIG==1&&LAT_MODE==5&&IN_SAA!=T'+\
                '&&((ABS(ROCK_ANGLE)<52))'
     OUT_FILE_LABEL = 'test'
