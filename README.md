@@ -19,14 +19,14 @@ To use this package:
 
 2) Change the directory where the data files are stored in __init__.py.
 
-   - line 35:
+   line 35:
    	FT_DATA_FOLDER = '/path/to/data_files'
 
-   - In this directory should there be the following folders:
+   In this directory should there be the following folders:
    
-   	- photon/      -> where FT1 files are stored
-	- spacecraft/  -> where FT2 files are stored
-	- output/      -> where ST outputs will be stored
+   	* photon/      -> where FT1 files are stored
+	* spacecraft/  -> where FT2 files are stored
+	* output/      -> where ST outputs will be stored
 
 
 How to run the analysis:
