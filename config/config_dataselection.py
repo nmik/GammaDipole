@@ -10,10 +10,21 @@
 #                                                                              #
 #------------------------------------------------------------------------------#
 
+
+""" Example of configuration file for bin/mkdataselection.py.
+
+    To run the analysis just do: 
+    >>> python bin/mkdataselection.py -c config/config_dataselection.py
+    To see the option availabe for bin/mkdataselection.py type:
+    >>> python bin/mkdataselection.py -h
+"""
+
+
 import os
 import numpy as np
 from GRATools import FT_DATA_FOLDER
 from GRATools.utils.ScienceTools_ import gtbindef
+
 
 OUT_LABEL = '1yr_data'
 
@@ -78,7 +89,3 @@ GTEXPCUBE2_DICT = {'infile': os.path.join(FT_DATA_FOLDER,
                    'irfs': 'CALDB',
                    'outfile': 'DEFAULT',
                    'clobber': 'no'}
-
-
-
-
