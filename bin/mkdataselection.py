@@ -39,7 +39,7 @@ __description__ = 'Run a chain of Science Tools'
 import ast
 import argparse
 from GammaDipole import FT_DATA_FOLDER
-from GammaDipole.utils.gFTools import mergeft
+from GammaDipole.utils.ScienceTools_ import mergeft1, mergeft2
 from GammaDipole.utils.logging_ import logger, startmsg
 
 formatter = argparse.ArgumentDefaultsHelpFormatter
@@ -68,9 +68,11 @@ def mkSTanalysis(**kwargs):
     PH, SC = 'photon', 'spacecraft'
     PH_FOLDER = os.path.join(FT_DATA_FOLDER, PH)
     SC_FOLDER = os.path.join(FT_DATA_FOLDER, SC)
-    start_week, end_week = data.START_WEEK, data.END_WEEK
+    start_week, end_week = data.START_WEEK, data.STOP_WEEK
     logger.info('Taking data from week %i to week %i'%(start_week, end_week))
     FT1_FILE = mergeft1(PH_FOLDER, 'FT1_w%i-%i.txt'%(start_week, end_week), \
+                           start_week, end_week)
+    FT2_FILE = mergeft2(PH_FOLDER, 'FT2_w%i-%i.txt'%(start_week, end_week), \
                            start_week, end_week)
     out_label = data.OUT_LABEL
     txt_out_files = open('output/'+out_label+'_outfiles.txt', 'w')
@@ -86,6 +88,8 @@ def mkSTanalysis(**kwargs):
     gtmktime_dict = data.GTMKTIME_DICT
     if gtmktime_dict['evfile'] == 'DEFAULT':
         gtmktime_dict['evfile'] = out_gtselect
+    if gtbin_dict['scfile'] == 'DEFAULT':
+        gtbin_dict['scfile'] = FT2_FILE
     out_gtmktime = gtmktime(out_label, gtmktime_dict)
     txt_out_files.write(out_gtmktime+'\n')
 
@@ -93,6 +97,8 @@ def mkSTanalysis(**kwargs):
     gtbin_dict = data.GTBIN_DICT
     if gtbin_dict['evfile'] == 'DEFAULT':
         gtbin_dict['evfile'] = out_gtmktime
+    if gtbin_dict['scfile'] == 'DEFAULT':
+        gtbin_dict['scfile'] = FT2_FILE
     out_gtbin = gtbin(out_label, gtbin_dict)
     txt_out_files.write(out_gtbin+'\n')
 
@@ -101,6 +107,8 @@ def mkSTanalysis(**kwargs):
         gtltcube_dict = data.GTLTCUBE_DICT
         if gtltcube_dict['evfile'] == 'DEFAULT':
             gtltcube_dict['evfile'] = out_gtmktime
+        if gtbin_dict['scfile'] == 'DEFAULT':
+            gtbin_dict['scfile'] = FT2_FILE
         out_gtltcube = gtltcube(out_label, gtltcube_dict)
         txt_out_files.write(out_gtltcube+'\n')
     else:
