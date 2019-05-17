@@ -200,12 +200,14 @@ def gtpsf(gtpsf_dict):
                   %(expcube, outfile, irfs, evtype, ra, dec, emin, emax, \
                         nenergies, thetamax, ntheta))
 
-def gtbindef(ebinning_array, file_name='ebinning.txt'):
+def gtEbindef(ebinning_array, file_name='ebinning.txt'):
     """Produces a fits file defining the enrgy binning to fed gtbin.
 
            ebinning_array: numpy array
                array in which the energy binnin is defined.
     """
+    if not os.path.exists(GD_OUT):
+        os.makedirs(GD_OUT)
     txt_file_name = os.path.join(GD_OUT, file_name)
     txt_file = open(txt_file_name, 'w')
     fits_file_name = os.path.join(GD_OUT, 
