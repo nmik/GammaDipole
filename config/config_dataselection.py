@@ -58,8 +58,8 @@ GTSELECT_DICT = {'infile': 'DEFAULT',
                  'outfile': 'DEFAULT',
                  'chatter': 4,
                  'clobber': 'no',
-                 'tmin' : 239557417,
-                 'tmax': 270604242}
+                 'tmin' : 'INDEF',
+                 'tmax': 'INDEF'}
 
 GTMKTIME_DICT = {'evfile': 'DEFAULT',
                  'scfile': SC_FILE,#'DEFAULT',
