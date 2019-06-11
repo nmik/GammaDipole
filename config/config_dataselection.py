@@ -44,6 +44,7 @@ SC_FILE = os.path.join(FT_DATA_FOLDER, 'spacecraft', 'lat_spacecraft_merged.fits
 ZMAX = 90
 EVCLASS = 2048
 EVTYPE = 3
+IRFS = 'P8R3_SOURCEVETO_V2'
 HPX_MAP_ORDER = 5
 FILTER_CUT='DATA_QUAL==1&&LAT_CONFIG==1&&LAT_MODE==5&&IN_SAA!=T'+\
                '&&((ABS(ROCK_ANGLE)<52))'
@@ -90,6 +91,6 @@ GTLTCUBE_DICT = {'evfile': 'DEFAULT',
 
 GTEXPCUBE2_DICT = {'infile': 'DEFAULT',
                    'cmap': 'DEFAULT',
-                   'irfs': 'CALDB',
+                   'irfs': IRFS,
                    'outfile': 'DEFAULT',
                    'clobber': 'no'}
