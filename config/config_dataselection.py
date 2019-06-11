@@ -34,29 +34,34 @@ STOP_WEEK = 60
 
 # minumum and maximum energy and energy bin number to generate fits file
 E_MIN = 100
-E_MAX = 2000000
+E_MAX = 1000000
 E_NBINS = 120
 EBINNING_ARRAY = np.logspace(np.log10(E_MIN), np.log10(E_MAX), E_NBINS)
 EBINNING_FILE = gtEbindef(EBINNING_ARRAY, file_name='ebinning.txt')
-print(EBINNING_FILE)
+SC_FILE = os.path.join(FT_DATA_FOLDER, 'spacecraft', 'lat_spacecraft_merged.fits')
 
 # other settings
 ZMAX = 90
+EVCLASS = 2048
+EVTYPE = 3
+HPX_MAP_ORDER = 5
 FILTER_CUT='DATA_QUAL==1&&LAT_CONFIG==1&&LAT_MODE==5&&IN_SAA!=T'+\
                '&&((ABS(ROCK_ANGLE)<52))'
 
 GTSELECT_DICT = {'infile': 'DEFAULT',
-                 'emin': 30,
-                 'emax': 300000,
+                 'emin': E_MIN,
+                 'emax': E_MAX,
                  'zmax': ZMAX,
-                 'evclass': 1024,
-                 'evtype': 3,
+                 'evclass': EVCLASS,
+                 'evtype': EVTYPE,
                  'outfile': 'DEFAULT',
                  'chatter': 4,
-                 'clobber': 'no'}
+                 'clobber': 'no',
+                 'tmin' : 239557417,
+                 'tmax': 270604242}
 
 GTMKTIME_DICT = {'evfile': 'DEFAULT',
-                 'scfile': 'DEFAULT',
+                 'scfile': SC_FILE,#'DEFAULT',
                  'filter': FILTER_CUT,
                  'roicut': 'no',
                  'outfile': 'DEFAULT',
@@ -64,9 +69,9 @@ GTMKTIME_DICT = {'evfile': 'DEFAULT',
 
 GTBIN_DICT = {'evfile': 'DEFAULT',
               'algorithm': 'HEALPIX',
-              'scfile': 'DEFAULT',
+              'scfile': SC_FILE,
               'hpx_ordering_scheme': 'RING',
-              'hpx_order': 6, 
+              'hpx_order': HPX_MAP_ORDER, 
               'coordsys': 'GAL',                                  
               'hpx_ebin': 'yes',
               'ebinalg': 'FILE',
@@ -75,17 +80,15 @@ GTBIN_DICT = {'evfile': 'DEFAULT',
               'clobber': 'no'}
 
 GTLTCUBE_DICT = {'evfile': 'DEFAULT',
-                 'scfile': 'DEFAULT',
+                 'scfile':  SC_FILE,
                  'zmax': ZMAX,                     
                  'dcostheta': 0.025,
                  'binsz': 1,
-                 'outfile': os.path.join(FT_DATA_FOLDER,
-                    'output/output_gtltcube/1yrP305SV_filtered_gti_ltcube.fits'),
+                 'outfile': 'DEFAULT',
                  'chatter': 4,
                  'clobber': 'no'}
 
-GTEXPCUBE2_DICT = {'infile': os.path.join(FT_DATA_FOLDER,
-                    'output/output_gtltcube/1yrP305SV_filtered_gti_ltcube.fits'),
+GTEXPCUBE2_DICT = {'infile': 'DEFAULT',
                    'cmap': 'DEFAULT',
                    'irfs': 'CALDB',
                    'outfile': 'DEFAULT',
