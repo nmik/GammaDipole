@@ -72,8 +72,8 @@ def mkSTanalysis(**kwargs):
     logger.info('Taking data from week %i to week %i'%(start_week, end_week))
     FT1_FILE = mergeft1(PH_FOLDER, 'FT1_w%i-%i.txt'%(start_week, end_week), \
                            start_week, end_week)
-    FT2_FILE = mergeft2(SC_FOLDER, 'FT2_w%i-%i.txt'%(start_week, end_week), \
-                           start_week, end_week)
+    #FT2_FILE = mergeft2(SC_FOLDER, 'FT2_w%i-%i.txt'%(start_week, end_week), \
+    #                       start_week, end_week)
     out_label = data.OUT_LABEL
     txt_out_files = open('output/'+out_label+'_outfiles.txt', 'w')
 
