@@ -4,15 +4,14 @@ Framework for Gamma-ray Dipole Analysis
 To use this package:
 --------------------
 
-0) - Install Fermi Science Tools
-   - Install python 3
-   - Install HEASARC FTools
-   - Install matplotlib
-   - Install healpy
-   - Install PolSpice
+0) - Install the Fermitools: 
+     	     	     https://github.com/fermi-lat/Fermitools-conda
+   - Install Fermipy (we use this environment): 
+     	     	     https://fermipy.readthedocs.io/en/latest/ 
+   - (Install PolSpice)
 
 1) Set the environment:
-  
+    - siurce activate fermi
     - export PYTHONPATH=:/path/to/this/package/${PYTHONPATH}
     - export PATH=/path/to/this/package/GammaDipole/bin:${PATH}
     - export P8_DATA=/path/to/data_files
