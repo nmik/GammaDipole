@@ -247,8 +247,11 @@ def mergeft1(path_to_files, out_file_name, N1week, Nnweek):
                 out_file.write("%s/lat_photon_weekly_w0%i_p305_v001.fits \n" \
                                    %(path_to_files,i))
             if i > 99:
-                out_file.write("%s/lat_photon_weekly_w%i_p305_v001.fits \n" \
-                                   %(path_to_files,i))
+                if i == 512:
+                    pass
+                else:
+                    out_file.write("%s/lat_photon_weekly_w%i_p305_v001.fits \n" \
+                                       %(path_to_files,i))
         out_file.close()
     logger.info('Created %s...' %outtxtfile)
     return '@'+outtxtfile
